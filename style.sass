@@ -1,3 +1,13 @@
+$link_color: #fff
+$link_color_hover: darken($link_color, 10%)
+$menu_bg: green
+$menu_bg_hover: lighten($menu_bg, 7%)
+
+body
+  font: 300 14px/150% "Lato", sans-serif
+  padding: 0
+  margin: 0
+
 .wrap
   display: table
   width: 100%
@@ -7,28 +17,48 @@
   right: 0
   bottom: 0
   left: 0
-  .menu 
-    font-size: 0
-    word-spacing: 0
-    display: table-cell
-    vertical-align: middle
-    text-align: center
-    list-style: none
+
+.sub
+  position: absolute
+  display: none
+
+.menu
+  font-size: 0
+  word-spacing: 0
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+  list-style: none
+  padding: 0
+  margin: 0
+  position: relative
+  a
+    color: $link_color
+    text-decoration: none
+    display: block
+    padding: 5px 12px
+    &:hover
+      color: $link_color_hover
+  > li
+    font-size: initial
+    word-spacing: initial
+    color: $link_color
+    display: inline-block
     padding: 0
-    margin: 0
-    .sub 
-      position: absolute
-      display: none
-    > li
-      display: inline-block
-      font-size: initial
-      word-spacing: initial
-      color: #fff
-      background: green
-      padding: 2px 5px
-      &:hover 
-        background: yellowGreen
-        .sub 
-          display: block
-          padding: 5px 10px
-          background: yellowGreen
+    position: relative
+    background: $menu_bg
+    &:hover
+      background: $menu_bg_hover
+      .sub
+        font-size: 12px
+        text-align: left
+        word-break: break-all
+        display: block
+        width: 100%
+        padding: 0
+        position: absolute
+        left: 0
+        background: $menu_bg_hover
+        box-sizing: border-box
+        box-shadow: 0 1px 2px transparentize(#777,0.5)
+
