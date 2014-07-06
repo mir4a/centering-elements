@@ -1,7 +1,28 @@
 $link_color: #fff
-$link_color_hover: darken($link_color, 10%)
+$link_color_hover: #fffdbd
 $menu_bg: green
 $menu_bg_hover: lighten($menu_bg, 7%)
+
+@-webkit-keyframes open-menu
+  0%
+    -webkit-transform: rotateX(-90deg)
+  50%
+    -webkit-transform: rotateX(15deg)
+  85%
+    -webkit-transform: rotateX(-10deg)
+  100%
+    -webkit-transform: rotateX(0deg)
+
+@keyframes open-menu
+  0%
+    transform: rotateX(-90deg)
+  50%
+    transform: rotateX(15deg)
+  85%
+    transform: rotateX(-10deg)
+  100%
+    transform: rotateX(0deg)
+
 
 body
   font: 300 14px/150% "Lato", sans-serif
@@ -21,6 +42,20 @@ body
 .sub
   position: absolute
   display: none
+  left: 0
+  transform-origin-y: 0px
+  animation-play-state: paused
+  -webkit-transform-origin-y: 0px
+  -webkit-animation-play-state: paused
+  background-image: linear-gradient(top, $menu_bg_hover, $menu_bg )
+  background-image: -webkit-linear-gradient(top, $menu_bg_hover, $menu_bg )
+  li
+    border-bottom: 1px solid $menu_bg
+    background: transparent
+    &:hover
+      background: $menu_bg
+    &:last-child
+      border-bottom: none
 
 .menu
   font-size: 0
@@ -53,12 +88,12 @@ body
         font-size: 12px
         text-align: left
         word-break: break-all
+        list-style: none
         display: block
         width: 100%
         padding: 0
-        position: absolute
-        left: 0
-        background: $menu_bg_hover
         box-sizing: border-box
         box-shadow: 0 1px 2px transparentize(#777,0.5)
+        animation: open-menu 400ms ease-in alternate running
+        -webkit-animation: open-menu 400ms ease-in alternate running
 
